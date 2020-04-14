@@ -91,9 +91,7 @@ class App
                 // call this the speed of light for a ToArray implementation. it's easily possible to detect cases where say
                 // a memcpy could be used, but wait for an impl to actually do this before lowering the baseline.
 
-                var len = array.Length;
-                var temp = new int[len];
-                Array.Copy(array, temp, len);
+                array.CopyTo(new int[array.Length], 0);
             }
 
             timer.Stop();
